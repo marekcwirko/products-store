@@ -1,0 +1,1 @@
+SELECT 'BASELINE based on https://www.sqlservertutorial.net/sql-server-sample-database/';
