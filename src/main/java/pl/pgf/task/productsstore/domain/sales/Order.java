@@ -52,7 +52,7 @@ public class Order implements Serializable {
     private Store store;
 
     @Fetch(FetchMode.JOIN)
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "staff_id", nullable = false)
     private Staff staff;
 }

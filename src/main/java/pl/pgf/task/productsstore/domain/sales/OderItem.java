@@ -21,7 +21,7 @@ import java.math.BigDecimal;
 public class OderItem implements Serializable {
 
     @Id
-    @Column(name = "order_id")
+    @Column(name = "item_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 

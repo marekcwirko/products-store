@@ -44,8 +44,8 @@ public class Staff implements Serializable {
     private Store store;
 
     @Fetch(FetchMode.JOIN)
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = "staff_id", nullable = false)
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "manager_id", nullable = false)
     private Staff manager;
 }
 
