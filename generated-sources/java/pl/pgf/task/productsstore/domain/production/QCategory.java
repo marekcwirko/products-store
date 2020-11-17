@@ -1,4 +1,4 @@
-package pl.pgf.task.productsstore.domain;
+package pl.pgf.task.productsstore.domain.production;
 
 import static com.querydsl.core.types.PathMetadataFactory.*;
 
@@ -15,7 +15,7 @@ import com.querydsl.core.types.Path;
 @Generated("com.querydsl.codegen.EntitySerializer")
 public class QCategory extends EntityPathBase<Category> {
 
-    private static final long serialVersionUID = -877019233L;
+    private static final long serialVersionUID = -813311598L;
 
     public static final QCategory category = new QCategory("category");
 

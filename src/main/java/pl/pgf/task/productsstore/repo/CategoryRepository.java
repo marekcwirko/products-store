@@ -3,9 +3,7 @@ package pl.pgf.task.productsstore.repo;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import org.springframework.data.rest.core.annotation.RestResource;
-import pl.pgf.task.productsstore.domain.Category;
-
-import java.util.Optional;
+import pl.pgf.task.productsstore.domain.production.Category;
 
 @RepositoryRestResource(collectionResourceRel = "categories", path = "categories")
 public interface CategoryRepository extends CrudRepository<Category, Integer> {

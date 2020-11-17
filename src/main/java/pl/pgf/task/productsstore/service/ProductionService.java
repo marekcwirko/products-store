@@ -4,8 +4,8 @@ import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
-import pl.pgf.task.productsstore.domain.Category;
-import pl.pgf.task.productsstore.domain.QCategory;
+import pl.pgf.task.productsstore.domain.production.Category;
+import pl.pgf.task.productsstore.domain.production.QCategory;
 import pl.pgf.task.productsstore.repo.CategoryRepository;
 import pl.pgf.task.productsstore.repo.QCategoryRepository;
 
