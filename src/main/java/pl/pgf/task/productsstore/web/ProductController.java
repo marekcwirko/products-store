@@ -10,7 +10,9 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import pl.pgf.task.productsstore.service.ProductService;
+import pl.pgf.task.productsstore.service.StockService;
 import pl.pgf.task.productsstore.web.mappers.ProductDto;
+import pl.pgf.task.productsstore.web.mappers.ProductOnStockDto;
 
 import java.net.URI;
 import java.util.List;
@@ -25,6 +27,7 @@ public class ProductController {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ProductController.class);
     private final ProductService productService;
+    private final StockService stockService;
 
     @PostMapping("/products")
     @ResponseStatus(HttpStatus.CREATED)
@@ -37,7 +40,6 @@ public class ProductController {
     }
 
     @GetMapping("/products")
-    @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<List<ProductDto>> getAllProducts() {
         LOGGER.info("GET /api/v1/production/products");
         return ResponseEntity.ok(StreamSupport
@@ -65,5 +67,11 @@ public class ProductController {
     public ResponseEntity<ProductDto> getProductByName(@PathVariable(value = "productId") Integer productId) {
         LOGGER.info("GET /api/v1/production/products/{}", productId);
         return ResponseEntity.ok(ProductDto.toProductDto(productService.getProductById(productId)));
+    }
+
+    @GetMapping("/products/onstock/{productId}")
+    public ResponseEntity<ProductOnStockDto> getProductOnStock(@PathVariable(value = "productId") Integer productId) {
+        LOGGER.info("GET /api/v1/production/products/onstock/{}", productId);
+        return ResponseEntity.ok(stockService.checkProductAmountById(productId));
     }
 }
