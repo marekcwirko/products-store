@@ -9,9 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
-import pl.pgf.task.productsstore.service.CategoryService;
 import pl.pgf.task.productsstore.service.ProductService;
-import pl.pgf.task.productsstore.web.mappers.CategoryDto;
 import pl.pgf.task.productsstore.web.mappers.ProductDto;
 
 import java.net.URI;
@@ -23,41 +21,10 @@ import java.util.stream.StreamSupport;
 @RequestMapping(path = "/api/v1/production", produces = MediaType.APPLICATION_JSON_VALUE)
 @AllArgsConstructor
 @ResponseBody()
-public class ProductionController {
+public class ProductController {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(ProductionController.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(ProductController.class);
     private final ProductService productService;
-    private final CategoryService categoryService;
-
-    @GetMapping("/categories")
-    public ResponseEntity<List<CategoryDto>> getAllCategories() {
-        LOGGER.info("GET /api/v1/production/categories");
-        return ResponseEntity.ok(StreamSupport
-                .stream(categoryService.getAllCategories().spliterator(), false)
-                .map(category -> CategoryDto.toCategoryDto(category))
-                .collect(Collectors.toList()));
-    }
-
-    @GetMapping("/categories/{categoryId}")
-    public ResponseEntity<CategoryDto> getCategoryById(@PathVariable(value = "categoryId") Integer categoryId) {
-        LOGGER.info("GET /api/v1/production/categories/{}", categoryId);
-        return ResponseEntity.ok(CategoryDto.toCategoryDto(categoryService.getCategoryById(categoryId)));
-    }
-
-    @GetMapping("/categories/name/{categoryName}")
-    public ResponseEntity<CategoryDto> getCategoryByName(@PathVariable(value = "categoryName") String categoryName) {
-        LOGGER.info("GET /api/v1/production/categories/name/{}", categoryName);
-        return ResponseEntity.ok(CategoryDto.toCategoryDto(categoryService.queryCategoryByName(categoryName)));
-    }
-
-    @GetMapping("/categories/name/like={categoryName}")
-    public ResponseEntity<List<CategoryDto>> filterCategoryByName(@PathVariable(value = "categoryName") String categoryName) {
-        LOGGER.info("GET /api/v1/production/categories/name/like={}", categoryName);
-        return ResponseEntity.ok(StreamSupport
-                .stream(categoryService.filterCategoryByName(categoryName).spliterator(), false)
-                .map(category -> CategoryDto.toCategoryDto(category))
-                .collect(Collectors.toList()));
-    }
 
     @PostMapping("/products")
     @ResponseStatus(HttpStatus.CREATED)
@@ -75,7 +42,7 @@ public class ProductionController {
         LOGGER.info("GET /api/v1/production/products");
         return ResponseEntity.ok(StreamSupport
                 .stream(productService.getAllProducts().spliterator(), false)
-                .map(product -> ProductDto .toProductDto(product))
+                .map(product -> ProductDto.toProductDto(product))
                 .collect(Collectors.toList()));
     }
 
