@@ -1,6 +1,7 @@
 package pl.pgf.task.productsstore.domain.sales;
 
 import com.querydsl.core.annotations.QueryEntity;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -17,6 +18,7 @@ import java.math.BigDecimal;
 @Entity
 @QueryEntity
 @EqualsAndHashCode
+@AllArgsConstructor
 @NoArgsConstructor
 public class OderItem implements Serializable {
 

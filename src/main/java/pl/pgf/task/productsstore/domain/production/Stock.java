@@ -1,6 +1,7 @@
 package pl.pgf.task.productsstore.domain.production;
 
 import com.querydsl.core.annotations.QueryEntity;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -16,6 +17,7 @@ import java.math.BigDecimal;
 @Entity
 @QueryEntity
 @EqualsAndHashCode
+@AllArgsConstructor
 @NoArgsConstructor
 public class Stock implements Serializable {
 
