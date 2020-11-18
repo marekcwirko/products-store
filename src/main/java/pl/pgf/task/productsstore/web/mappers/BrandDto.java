@@ -3,17 +3,17 @@ package pl.pgf.task.productsstore.web.mappers;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import pl.pgf.task.productsstore.domain.production.Category;
+import pl.pgf.task.productsstore.domain.production.Brand;
 
 @Data
 @EqualsAndHashCode
 @AllArgsConstructor
-public final class CategoryDto {
+public class BrandDto {
 
     private Integer id;
     private String name;
 
-    public static CategoryDto toCategoryDto(Category c) {
-        return new CategoryDto(c.getId(), c.getName());
+    public static BrandDto toBrandDto(Brand b) {
+        return new BrandDto(b.getId(), b.getName());
     }
 }

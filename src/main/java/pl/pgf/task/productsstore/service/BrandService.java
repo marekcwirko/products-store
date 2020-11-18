@@ -17,8 +17,8 @@ public class BrandService {
     private final QBrandRepository qBrandRepository;
 
     public Brand queryBrandByName(String brandName) {
-        Optional<Brand> brand = qBrandRepository.findOne(QBrand.brand.name.eq(brandName));
-        return brand.orElseThrow(() -> new NoSuchElementException("Brand(" + brandName));
+        return qBrandRepository.findOne(QBrand.brand.name.eq(brandName))
+            .orElseThrow(() -> new NoSuchElementException("Brand(" + brandName));
     }
 
     private Brand verifyBrand(Integer brandId) throws NoSuchElementException {
@@ -26,4 +26,7 @@ public class BrandService {
                 () -> new NoSuchElementException("Brand(" + brandId + ")"));
     }
 
+    public Iterable<Brand> getAllBrands() {
+        return qBrandRepository.findAll();
+    }
 }

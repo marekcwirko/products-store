@@ -28,6 +28,8 @@ public class QStock extends EntityPathBase<Stock> {
 
     public final NumberPath<Integer> quantity = createNumber("quantity", Integer.class);
 
+    protected pl.pgf.task.productsstore.domain.sales.QStore store;
+
     public QStock(String variable) {
         this(Stock.class, forVariable(variable), INITS);
     }
@@ -47,6 +49,7 @@ public class QStock extends EntityPathBase<Stock> {
     public QStock(Class<? extends Stock> type, PathMetadata metadata, PathInits inits) {
         super(type, metadata, inits);
         this.product = inits.isInitialized("product") ? new QProduct(forProperty("product"), inits.get("product")) : null;
+        this.store = inits.isInitialized("store") ? new pl.pgf.task.productsstore.domain.sales.QStore(forProperty("store")) : null;
     }
 
     public QProduct product() {
@@ -54,6 +57,13 @@ public class QStock extends EntityPathBase<Stock> {
             product = new QProduct(forProperty("product"));
         }
         return product;
+    }
+
+    public pl.pgf.task.productsstore.domain.sales.QStore store() {
+        if (store == null) {
+            store = new pl.pgf.task.productsstore.domain.sales.QStore(forProperty("store"));
+        }
+        return store;
     }
 
 }

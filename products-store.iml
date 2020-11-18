@@ -158,6 +158,9 @@
     <orderEntry type="library" name="Maven: com.querydsl:querydsl-jpa:4.4.0" level="project" />
     <orderEntry type="library" name="Maven: javax.inject:javax.inject:1" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: com.h2database:h2:1.4.200" level="project" />
+    <orderEntry type="library" name="Maven: org.everit.transaction:org.everit.transaction.propagator.jta:1.0.0" level="project" />
+    <orderEntry type="library" name="Maven: org.everit.transaction:org.everit.transaction.propagator.api:1.0.0" level="project" />
+    <orderEntry type="library" name="Maven: org.everit.transaction:org.everit.transaction.unchecked:1.0.0" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-web:2.4.0" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-webmvc:5.3.1" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-expression:5.3.1" level="project" />

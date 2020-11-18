@@ -23,7 +23,7 @@ import java.math.BigDecimal;
 public class Stock implements Serializable {
 
     @Id
-    @Column(name = "store_id")
+    @Column(name = "stock_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
