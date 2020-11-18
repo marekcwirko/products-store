@@ -7,7 +7,8 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode
 @AllArgsConstructor
-public final class ProductOnStockDto {
+public final class ProductOnStoreDto {
     private ProductDto product;
+    private StoreDto store;
     private Integer amount;
 }

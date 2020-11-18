@@ -3,29 +3,29 @@ package pl.pgf.task.productsstore.repo;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import org.springframework.data.rest.core.annotation.RestResource;
-import pl.pgf.task.productsstore.domain.production.Stock;
+import pl.pgf.task.productsstore.domain.sales.Store;
 
 @RepositoryRestResource(collectionResourceRel = "stores", path = "stores")
-public interface StockRepository extends CrudRepository<Stock, Integer> {
+public interface StoreRepository extends CrudRepository<Store, Integer> {
 
     @Override
     @RestResource(exported = false)
-    <S extends Stock> S save(S s);
+    <S extends Store> S save(S s);
 
     @Override
     @RestResource(exported = false)
-    <S extends Stock> Iterable<S> saveAll(Iterable<S> iterable);
+    <S extends Store> Iterable<S> saveAll(Iterable<S> iterable);
 
     @RestResource(exported = false)
     void deleteById(Integer s);
 
     @Override
     @RestResource(exported = false)
-    void delete(Stock player);
+    void delete(Store player);
 
     @Override
     @RestResource(exported = false)
-    void deleteAll(Iterable<? extends Stock> iterable);
+    void deleteAll(Iterable<? extends Store> iterable);
 
     @Override
     @RestResource(exported = false)

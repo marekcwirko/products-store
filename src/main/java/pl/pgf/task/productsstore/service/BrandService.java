@@ -3,6 +3,7 @@ package pl.pgf.task.productsstore.service;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import pl.pgf.task.productsstore.domain.production.Brand;
+import pl.pgf.task.productsstore.domain.production.Category;
 import pl.pgf.task.productsstore.domain.production.QBrand;
 import pl.pgf.task.productsstore.repo.QBrandRepository;
 
@@ -18,6 +19,11 @@ public class BrandService {
     public Brand queryBrandByName(String brandName) {
         Optional<Brand> brand = qBrandRepository.findOne(QBrand.brand.name.eq(brandName));
         return brand.orElseThrow(() -> new NoSuchElementException("Brand(" + brandName));
+    }
+
+    private Brand verifyBrand(Integer brandId) throws NoSuchElementException {
+        return qBrandRepository.findById(brandId).orElseThrow(
+                () -> new NoSuchElementException("Brand(" + brandId + ")"));
     }
 
 }

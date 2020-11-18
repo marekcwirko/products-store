@@ -13,6 +13,7 @@ import pl.pgf.task.productsstore.service.ProductService;
 import pl.pgf.task.productsstore.service.StockService;
 import pl.pgf.task.productsstore.web.mappers.ProductDto;
 import pl.pgf.task.productsstore.web.mappers.ProductOnStockDto;
+import pl.pgf.task.productsstore.web.mappers.ProductOnStoreDto;
 
 import java.net.URI;
 import java.util.List;
@@ -73,5 +74,14 @@ public class ProductController {
     public ResponseEntity<ProductOnStockDto> getProductOnStock(@PathVariable(value = "productId") Integer productId) {
         LOGGER.info("GET /api/v1/production/products/onstock/{}", productId);
         return ResponseEntity.ok(stockService.checkProductAmountById(productId));
+    }
+
+    @PatchMapping("/products/onstock/{productId}/store/{storeId}/{newAmount}")
+    public ResponseEntity<ProductOnStoreDto> updateProductOnStockForStore(
+            @PathVariable(value = "productId") Integer productId,
+            @PathVariable(value = "storeId") Integer storeId,
+            @PathVariable(value = "newAmount") Integer newAmount) {
+        LOGGER.info("GET /api/v1/production/products/onstock/{}/store/{}/{}", productId, storeId, newAmount);
+        return ResponseEntity.ok(stockService.updateProductOnStockForStore(productId, storeId, newAmount));
     }
 }

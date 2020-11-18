@@ -17,7 +17,7 @@ public interface BrandRepository extends CrudRepository<Brand, Integer> {
     <S extends Brand> Iterable<S> saveAll(Iterable<S> iterable);
 
     @RestResource(exported = false)
-    void deleteById(String s);
+    void deleteById(Integer s);
 
     @Override
     @RestResource(exported = false)

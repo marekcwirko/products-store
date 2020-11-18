@@ -17,7 +17,7 @@ public interface CategoryRepository extends CrudRepository<Category, Integer> {
     <S extends Category> Iterable<S> saveAll(Iterable<S> iterable);
 
     @RestResource(exported = false)
-    void deleteById(String s);
+    void deleteById(Integer s);
 
     @Override
     @RestResource(exported = false)

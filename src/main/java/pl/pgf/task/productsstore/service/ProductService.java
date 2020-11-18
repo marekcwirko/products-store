@@ -43,8 +43,12 @@ public class ProductService {
     }
 
     public Product getProductById(Integer productId) {
-        Optional<Product> product = qProductRepository.findOne(QProduct.product.id.eq(productId));
-        return product.orElseThrow(() -> new NoSuchElementException("Product(" + productId));
+        return verifyProduct(productId);
+    }
+
+    private Product verifyProduct(Integer productId) throws NoSuchElementException {
+        return qProductRepository.findById(productId).orElseThrow(
+                () -> new NoSuchElementException("Product(" + productId + ")"));
     }
 
 }
