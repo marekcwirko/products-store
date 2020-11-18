@@ -2,15 +2,11 @@ package pl.pgf.task.productsstore.service;
 
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
-import pl.pgf.task.productsstore.domain.production.Brand;
-import pl.pgf.task.productsstore.domain.production.QBrand;
 import pl.pgf.task.productsstore.domain.sales.QStore;
 import pl.pgf.task.productsstore.domain.sales.Store;
-import pl.pgf.task.productsstore.repo.QBrandRepository;
 import pl.pgf.task.productsstore.repo.QStoreRepository;
 
 import java.util.NoSuchElementException;
-import java.util.Optional;
 
 @Service
 @AllArgsConstructor
@@ -27,4 +23,7 @@ public class StoreService {
                 .orElseThrow(() -> new NoSuchElementException("Store(" + storeId));
     }
 
+    public Iterable<Store> getAllStores() {
+        return qStoreRepository.findAll();
+    }
 }

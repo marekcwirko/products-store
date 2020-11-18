@@ -29,4 +29,5 @@ public class BrandService {
     public Iterable<Brand> getAllBrands() {
         return qBrandRepository.findAll();
     }
+
 }
